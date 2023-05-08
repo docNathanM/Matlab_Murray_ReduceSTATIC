@@ -12,6 +12,8 @@ fName = fullfile(staticPath,staticFname);
 
 warning('off','MATLAB:table:ModifiedAndSavedVarnames')
 Traw = readtable(fName,'FileType','text','ReadVariableNames',true);
+% Forcing first row to be variable names. Any numeric values will be
+% changed to variable names like '1' becomes 'x1' and so on.
 
 dS = table2struct(Traw,'ToScalar',true);
 
