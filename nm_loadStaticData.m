@@ -1,11 +1,11 @@
 function [dStaticMN,dStaticVAR,dStaticArray] = nm_loadStaticData( eVnum )
 %nm_loadStaticData( eVnum ) => dStatic loads the run data.
 
-rdirAVG = rdir('**/*_averages.txt');
-[~,fnameAVG,~] = fileparts(rdirAVG.name);
+dirAVG = dir('**/*_averages.txt');
+% [~,fnameAVG,~] = fileparts(dirAVG.name);
 
-expName = erase(fnameAVG,'_averages');
-staticPath = rdirAVG.folder;
+expName = erase(dirAVG.name,'_averages.txt');
+staticPath = dirAVG.folder;
 
 staticFname = sprintf([expName '_%04d.txt'],eVnum);
 fName = fullfile(staticPath,staticFname);
