@@ -1,7 +1,10 @@
 function [dStaticMN,dStaticVAR,dStaticArray] = nm_loadStaticData( eVnum )
 %nm_loadStaticData( eVnum ) => dStatic loads the run data.
 
-dirAVG = dir('**/*_averages.txt');
+srchStrg = fullfile('**','*_averages.txt');
+% use the fullfile command above to make sure this works regardless of the
+% backslash settings of the operating system.
+dirAVG = dir(srchStrg);
 % [~,fnameAVG,~] = fileparts(dirAVG.name);
 
 expName = erase(dirAVG.name,'_averages.txt');
